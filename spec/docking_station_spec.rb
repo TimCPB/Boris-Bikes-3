@@ -7,10 +7,11 @@ describe DockingStation do
         bike = subject.release_bike
         expect(bike.working?).to eq true
     end
+
   it {is_expected.to respond_to(:dock).with(1).argument }
 
 
-   it { is_expected.to respond_to(:contains_bike) }
+    it { is_expected.to respond_to(:bike) }
 
    it 'docks a bike' do
      bike = Bike.new
@@ -20,7 +21,7 @@ describe DockingStation do
    it 'contains a bike' do
         bike = Bike.new
         subject.dock(bike)
-        expect(subject.contains_bike).to eq bike
+        expect(subject.bike).to eq bike
       end
 
 end
