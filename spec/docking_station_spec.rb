@@ -2,9 +2,11 @@
 require './lib/docking_station.rb'
 
 describe DockingStation do
+    subject(:station) {DockingStation.new}
+
     it {is_expected.to respond_to(:release_bike)}
     it 'release_bike' do
-        bike = subject.release_bike
+        bike = station.release_bike
         expect(bike.working?).to eq true
     end
 
@@ -15,13 +17,13 @@ describe DockingStation do
 
    it 'docks a bike' do
      bike = Bike.new
-     expect(subject.dock(bike)).to eq bike
+     expect(station.dock(bike)).to eq bike
    end
 
    it 'contains a bike' do
         bike = Bike.new
-        subject.dock(bike)
-        expect(subject.bike).to eq bike
+        station.dock(bike)
+        expect(station.bike).to eq bike
       end
 
 end
