@@ -7,6 +7,8 @@ describe DockingStation do
     it {is_expected.to respond_to(:release_bike)}
     
     it 'release_bike' do
+        bike_1 = Bike.new
+        station.dock(bike_1)
         bike = station.release_bike
         expect(bike.working?).to eq true
     end
